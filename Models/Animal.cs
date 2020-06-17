@@ -11,9 +11,9 @@ namespace CaoLendario.Models
         public string NomeAnimal { get; set; }
         public DateTime Nascimento { get; set; }
         public double Peso { get; set; }
-        public TSexo Sexo { get; }
-        public TPelagem TipoPelagem { get; }
-        public TPorte Porte { get; }
+        public TSexo Sexo { get; set; }
+        public TPelagem TipoPelagem { get; set; }
+        public TPorte Porte { get; set; }
         public bool GostaBrincar { get; set; }
         public string Temperamento { get; set; }
         public bool RelacionaOutroCao { get; set; }

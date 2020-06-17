@@ -1,36 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Desktop\\Integradoras_5\\CaoLendario.csproj": {}
+    "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\CaoLendario.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Desktop\\Integradoras_5\\CaoLendario.csproj": {
+    "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\CaoLendario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Integradoras_5\\CaoLendario.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\CaoLendario.csproj",
         "projectName": "CaoLendario",
-        "projectPath": "C:\\Users\\Usuario\\Desktop\\Integradoras_5\\CaoLendario.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Desktop\\Integradoras_5\\obj\\",
+        "projectPath": "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\CaoLendario.csproj",
+        "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Carlos\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "netcoreapp3.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "netcoreapp3.0": {
             "projectReferences": {}
           }
         },
@@ -41,7 +41,7 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "netcoreapp3.0": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -67,7 +67,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.3, )"
+              "version": "[3.0.0, )"
             }
           },
           "imports": [
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
