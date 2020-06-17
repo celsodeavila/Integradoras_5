@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\CaoLendario.csproj": {}
+    "C:\\Users\\Carlos\\Documents\\GitHub\\Integradoras_5\\CaoLendario.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\CaoLendario.csproj": {
+    "C:\\Users\\Carlos\\Documents\\GitHub\\Integradoras_5\\CaoLendario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\CaoLendario.csproj",
+        "projectUniqueName": "C:\\Users\\Carlos\\Documents\\GitHub\\Integradoras_5\\CaoLendario.csproj",
         "projectName": "CaoLendario",
-        "projectPath": "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\CaoLendario.csproj",
+        "projectPath": "C:\\Users\\Carlos\\Documents\\GitHub\\Integradoras_5\\CaoLendario.csproj",
         "packagesPath": "C:\\Users\\Carlos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Carlos\\Desktop\\Integradoras_5 - Copia\\obj\\",
+        "outputPath": "C:\\Users\\Carlos\\Documents\\GitHub\\Integradoras_5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
