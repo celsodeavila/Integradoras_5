@@ -13,7 +13,10 @@
             <span style="font-size: 19px;">Mostre que você realmente se importa com seu animalzinho:</span></br>
             <span style="font-size: 32px;">manténha seus dados atualizados!</span>
         </h2>
-        <form id="form-pos" asp-action="New">
+        <form id="form-pos" asp-action="@(ViewBag.isEdit == true ? "Edit" : "New")" asp-route-pag="@Model.PagingInfo.PaginaAtual">
+            @{ 
+                if (ViewBag.isEdit == true) { <input type="hidden" asp-for="procedimentoPosAdocao.ProcedimentosPosAdocaoID" />}
+            }
             <select id="txt-animal" class="input" asp-for="procedimentoPosAdocao.AnimalID" asp-items="ViewBag.Animais"></select>
             <textarea id="txt-descricao" class="input" placeholder="Descrição" asp-for="procedimentoPosAdocao.descricao"> </textarea>
             <input id="txt-data" class="input" type="date" placeholder="Data" asp-for="procedimentoPosAdocao.data">
@@ -41,17 +44,21 @@
                         <p class="item-cod">CÓD ANIMAL: @p.AnimalID.ToString("00000")</p>
                         <div class="item-container">
                             <img src="~/assets/PetCare.svg" />
-                            <p>
-                                @p.descricao
-                            </p>
+                            <div class="item-data">
+                                <p>@p.descricao</p>
+                                <div id="item-btn-group">
+                                    <a class="btn-item edit" asp-action="Edit" asp-route-id="@p.ProcedimentosPosAdocaoID" asp-route-pag="@Model.PagingInfo.PaginaAtual">Editar</a>
+                                    <a class="btn-item del" asp-action="Delete" asp-route-id="@p.ProcedimentosPosAdocaoID" asp-route-pag="@Model.PagingInfo.PaginaAtual" onclick="return confirm('Deseja realmente deletar isto?')">Excluir</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             }
         </div>
         <div page-model="@Model.PagingInfo" page-action="New" page-classes-enabled="true"
-                page-class="btn-nav" page-class-normal="btn-nav"
-                page-class-selected="nav-active" class="btn-navigation-group">
+             page-class="btn-nav" page-class-normal="btn-nav"
+             page-class-selected="nav-active" class="btn-navigation-group">
         </div>
     </div>
 </div>
