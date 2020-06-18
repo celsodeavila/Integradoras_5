@@ -141,7 +141,6 @@ namespace CaoLendario.Models
                 context.Adotantes.AddRange(
                 new Adotante
                 {
-                    UserID = 2,
                     nome = "Alberto",
                     email = "alberto@albertp.com",
                     senha = "alberto",
