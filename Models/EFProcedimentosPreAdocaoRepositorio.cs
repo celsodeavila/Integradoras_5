@@ -11,13 +11,12 @@ namespace CaoLendario.Models
     {
         private ApplicationDbContext context;
 
-        public IQueryable<ProcedimentosPreAdocao> ProcedimentosPreAdocao => throw new NotImplementedException();
+        public IQueryable<ProcedimentosPreAdocao> ProcedimentosPreAdocao => context.ProcedimentosPreAdocao;
 
         public EFProcedimentosPreAdocaoRepositorio(ApplicationDbContext ctx)
         {
             context = ctx;
         }
-        IQueryable<ProcedimentosPreAdocao> context.ProcedimentosPreAdocao;
         public void Create(ProcedimentosPreAdocao procedimentosPreAdocao)
         {
             context.Add(procedimentosPreAdocao);
@@ -43,4 +42,4 @@ namespace CaoLendario.Models
         }
     }
 }
-}
+

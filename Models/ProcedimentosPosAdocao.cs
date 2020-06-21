@@ -9,6 +9,7 @@ namespace CaoLendario.Models
     {
         private string descricao;
         private DateTime data;
+        public int ProcedimentosPosAdocaoID { get; set; }
 
         public string Descricao { get => descricao; set => descricao = value; }
         public DateTime Data { get => data; set => data = value; }
