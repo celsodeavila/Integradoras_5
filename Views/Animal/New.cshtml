@@ -1,83 +1,100 @@
-﻿@model CaoLendario.Models.Animal
+﻿@*model CaoLendario.Models.Animal*@
+@model CaoLendario.Models.ViewModels.AnimalListViewModel
 
 @{
-    ViewData["Title"] = "Animal";
+    ViewData["Title"] = "Controle de Animais";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section>
+    <div class="content">
+        <div class="form">
+            <h1 class="title">@ViewBag.Title</h1>
+            <h2 class="sub-title">
+                <span style="font-size: 1.125em; font-weight: 400;">Permita que o animal seja adotado!</span> <br />
+                <span style="font-size: 0.85em;">Informe seus dados e os mantenham sempre atualizados.</span> <br />
+                <span style="font-size: 1.125em; font-weight: 400;">Com isso, um adotante logo irá encontra-ló</span> <br />
+            </h2>
+            <form class="form-animal" asp-action="New">
+                <div>
+                    <input class="shadow-input" asp-for="animal.NomeAnimal" placeholder="Nome do animal" />
+                </div>
 
-<div class="content">
-    <div class="col-md-4">
-        <form asp-action="New">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NomeAnimal" class="control-label"></label>
-                <input asp-for="NomeAnimal" class="form-control" />
-                <span asp-validation-for="NomeAnimal" class="text-danger"></span>
+                <div>
+                    <input class="shadow-input" asp-for="animal.Nascimento" />
+
+                    <select class="shadow-input" asp-for="animal.Sexo">
+                        <option selected>Sexo</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Femea">Femea</option>
+                    </select>
+                </div>
+
+                <div>
+                    <input class="shadow-input" asp-for="animal.Peso" placeholder="Peso (KG)" />
+
+                    <select class="shadow-input" asp-for="animal.TipoPelagem">
+                        <option selected>Tipo de pelo</option>
+                        <option value="Grandes">Pelos grandes</option>
+                        <option value="Pequenos">Pelos pequenos</option>
+                    </select>
+                </div>
+
+                <div>
+                    <select class="shadow-input" asp-for="animal.Porte">
+                        <option selected>Porte</option>
+                        <option value="Pequeno">Pequeno</option>
+                        <option value="Medio">Médio</option>
+                        <option value="Grande">Grande</option>
+                    </select>
+
+                    <input class="shadow-input" asp-for="animal.Temperamento" placeholder="Temperamento" />
+                </div>
+
+                <div class="relacao-animal">
+                    <input asp-for="animal.GostaBrincar" />
+                    <label>Gosta de Brincar</label>
+
+                    <input asp-for="animal.RelacionaOutroCao" />
+                    <label>Pode conviver com outro cão</label>
+
+                    <input asp-for="animal.RelacionaGato" />
+                    <label>Pode conviver com gato</label>
+
+                    <input asp-for="animal.PossuiDeficiencia" />
+                    <label>Possui deficiencia</label>
+                </div>
+
+                <div>
+                    <textarea placeholder="Historico de vida" asp-for="animal.HistoricoVida"></textarea>
+                </div>
+
+                <div class="imagens-animal shadow-input">
+                    <h1>Imagens</h1>
+                    <input type="file" asp-for="animal.UrlFoto" />
+                </div>
+
+                <div>
+                    <button class="btn-cadastrar" type="submit" value="Create">Salvar</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="sidebar">
+            <h1 class="side-title">Catalogo de Animais</h1>
+            <button id="reload" class="btn-menu">
+                <p>Atualizado a 12h <img src="~/assets/Reload.svg" alt="reload" /></p>
+            </button>
+            <button class="btn-filter">
+                <p>TODOS OS REGISTROS</p>
+                <span>Filtrar <img src="~/assets/Filter.svg" alt="filter" /></span>
+            </button>
+            <div class="item-content">
+
             </div>
-            <div class="form-group">
-                <label asp-for="Nascimento" class="control-label"></label>
-                <input asp-for="Nascimento" class="form-control" />
-                <span asp-validation-for="Nascimento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Peso" class="control-label"></label>
-                <input asp-for="Peso" class="form-control" />
-                <span asp-validation-for="Peso" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sexo" class="control-label"></label>
-                <select asp-for="Sexo" class="form-control"></select>
-                <span asp-validation-for="Sexo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TipoPelagem" class="control-label"></label>
-                <select asp-for="TipoPelagem" class="form-control"></select>
-                <span asp-validation-for="TipoPelagem" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Porte" class="control-label"></label>
-                <select asp-for="Porte" class="form-control"></select>
-                <span asp-validation-for="Porte" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="GostaBrincar" /> @Html.DisplayNameFor(model => model.GostaBrincar)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Temperamento" class="control-label"></label>
-                <input asp-for="Temperamento" class="form-control" />
-                <span asp-validation-for="Temperamento" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RelacionaOutroCao" /> @Html.DisplayNameFor(model => model.RelacionaOutroCao)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="RelacionaGato" /> @Html.DisplayNameFor(model => model.RelacionaGato)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PossuiDeficiencia" /> @Html.DisplayNameFor(model => model.PossuiDeficiencia)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="HistoricoVida" class="control-label"></label>
-                <input asp-for="HistoricoVida" class="form-control" />
-                <span asp-validation-for="HistoricoVida" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UrlFoto" class="control-label"></label>
-                <input asp-for="UrlFoto" class="form-control" />
-                <span asp-validation-for="UrlFoto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
+</section>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
