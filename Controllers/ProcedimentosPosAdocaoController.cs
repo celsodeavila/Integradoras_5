@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CaoLendario.Models;
+using CaoLendario.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CaoLendario.Controllers
 {
@@ -11,39 +13,37 @@ namespace CaoLendario.Controllers
     {
         private ApplicationDbContext context;
         private IProcedimentosPosAdocaoRepositorio repositorio;
-        public int PageSize = 4;
+        public int PageSize = 2;
         public ProcedimentosPosAdocaoController(IProcedimentosPosAdocaoRepositorio repo, ApplicationDbContext ctx)
         {
             repositorio = repo;
             context = ctx;
         }
-
-        //public ViewResult List(int pag = 1) => View(new ProdutosListViewModel
-        //{
-        //    Produtos = repositorio.ProcedimentosPosAdocao
-        //    .OrderBy(p => p.ProdutoID)
-        //    .Skip((pag - 1) * PageSize)
-        //    .Take(PageSize),
-        //    PagingInfo = new PagingInfo
-        //    {
-        //        PaginaAtual = pag,
-        //        ItensPorPagina = PageSize,
-        //        TotalItens = repositorio.Produtos.Count()
-        //    }
-        //});
-
+        
         [HttpGet]
-        public IActionResult New()
+        public IActionResult New(int pag = 1)
         {
-           /* ViewBag.ProcedimentosPosAdocaoID = new SelectList(context.Fabricantes.OrderBy(f
-           => f.Nome), "FabricanteID", "Nome");*/
-            return View();
+            ViewBag.Animais =  new SelectList(context.Animais.OrderBy(a => a.NomeAnimal), "AnimalID", "NomeAnimal");
+            return View(new ProcedimentosPosAdocaoListViewModel
+            {
+                ProcedimentosPosAdocao = repositorio.ProcedimentosPosAdocao
+                .OrderBy(p => p.ProcedimentosPosAdocaoID)
+                .Skip((pag - 1) * PageSize)
+                .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    PaginaAtual = pag,
+                    ItensPorPagina = PageSize,
+                    TotalItens = repositorio.ProcedimentosPosAdocao.Count()
+                }
+            });
         }
+
         [HttpPost]
-        public IActionResult New(ProcedimentosPosAdocao procedimentosPosAdocao)
+        public IActionResult New(ProcedimentosPosAdocao procedimentoPosAdocao)
         {
-            repositorio.Create(procedimentosPosAdocao);
-            return RedirectToAction("List");
+            repositorio.Create(procedimentoPosAdocao);
+            return RedirectToAction("New");
         }
 
         public IActionResult Details(int id)

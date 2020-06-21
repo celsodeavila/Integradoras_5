@@ -9,12 +9,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CaoLendario.Controllers
 {
-    public class AnimalControllers : Controller
+    public class AnimalController : Controller
     {
         private ApplicationDbContext context;
 
         private IAnimalRepositorio repositorio;
-        public AnimalControllers(IAnimalRepositorio repo, ApplicationDbContext ctx)
+        public AnimalController(IAnimalRepositorio repo, ApplicationDbContext ctx)
         {
             repositorio = repo;
             context = ctx;

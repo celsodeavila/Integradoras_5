@@ -1,0 +1,57 @@
+﻿@model CaoLendario.Models.ViewModels.ProcedimentosPosAdocaoListViewModel
+
+@{
+    ViewData["Title"] = "Pos Adocão";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="form">
+        <h1 class="title">@ViewBag.Title</h1>
+        <h2 class="sub-title">
+            <span style="font-size: 28px;">Mais importante que adotar, é cuidar bem!</span></br>
+            <span style="font-size: 19px;">Mostre que você realmente se importa com seu animalzinho:</span></br>
+            <span style="font-size: 32px;">manténha seus dados atualizados!</span>
+        </h2>
+        <form id="form-pos" asp-action="New">
+            <select id="txt-animal" class="input" asp-for="procedimentoPosAdocao.AnimalID" asp-items="ViewBag.Animais"></select>
+            <textarea id="txt-descricao" class="input" placeholder="Descrição" asp-for="procedimentoPosAdocao.descricao"> </textarea>
+            <input id="txt-data" class="input" type="date" placeholder="Data" asp-for="procedimentoPosAdocao.data">
+            <input id="btn-salvar" class="btn-solid" type="submit" value="Salvar">
+        </form>
+    </div>
+    <div class="sidebar">
+        <h1 class="side-title">Últimos procedimentos</h1>
+        <button id="reload" class="btn-menu">
+            <p>Atualizado a 8h <img src="~/assets/Reload.svg" alt="reload" /></p>
+        </button>
+        <button class="btn-filter">
+            <p>TODOS OS REGISTROS</p>
+            <span>Filtrar <img src="~/assets/Filter.svg" alt="filter" /></span>
+        </button>
+        <div class="item-content">
+            @foreach (var p in Model.ProcedimentosPosAdocao)
+            {
+                <div class="item">
+                    <div class="item-header">
+                        <img src="~/assets/Calendario.svg" />
+                        <p>@p.data.ToShortDateString()</p>
+                    </div>
+                    <div class="item-body">
+                        <p class="item-cod">CÓD ANIMAL: @p.AnimalID.ToString("00000")</p>
+                        <div class="item-container">
+                            <img src="~/assets/PetCare.svg" />
+                            <p>
+                                @p.descricao
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div page-model="@Model.PagingInfo" page-action="New" page-classes-enabled="true"
+                page-class="btn-nav" page-class-normal="btn-nav"
+                page-class-selected="nav-active" class="btn-navigation-group">
+        </div>
+    </div>
+</div>

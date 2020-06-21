@@ -1,0 +1,83 @@
+﻿@model CaoLendario.Models.Animal
+
+@{
+    ViewData["Title"] = "Animal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="col-md-4">
+        <form asp-action="New">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeAnimal" class="control-label"></label>
+                <input asp-for="NomeAnimal" class="form-control" />
+                <span asp-validation-for="NomeAnimal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nascimento" class="control-label"></label>
+                <input asp-for="Nascimento" class="form-control" />
+                <span asp-validation-for="Nascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Peso" class="control-label"></label>
+                <input asp-for="Peso" class="form-control" />
+                <span asp-validation-for="Peso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sexo" class="control-label"></label>
+                <select asp-for="Sexo" class="form-control"></select>
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoPelagem" class="control-label"></label>
+                <select asp-for="TipoPelagem" class="form-control"></select>
+                <span asp-validation-for="TipoPelagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Porte" class="control-label"></label>
+                <select asp-for="Porte" class="form-control"></select>
+                <span asp-validation-for="Porte" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="GostaBrincar" /> @Html.DisplayNameFor(model => model.GostaBrincar)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Temperamento" class="control-label"></label>
+                <input asp-for="Temperamento" class="form-control" />
+                <span asp-validation-for="Temperamento" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="RelacionaOutroCao" /> @Html.DisplayNameFor(model => model.RelacionaOutroCao)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="RelacionaGato" /> @Html.DisplayNameFor(model => model.RelacionaGato)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PossuiDeficiencia" /> @Html.DisplayNameFor(model => model.PossuiDeficiencia)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="HistoricoVida" class="control-label"></label>
+                <input asp-for="HistoricoVida" class="form-control" />
+                <span asp-validation-for="HistoricoVida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrlFoto" class="control-label"></label>
+                <input asp-for="UrlFoto" class="form-control" />
+                <span asp-validation-for="UrlFoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

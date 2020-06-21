@@ -11,16 +11,16 @@ namespace CaoLendario.Models
         public string NomeAnimal { get; set; }
         public DateTime Nascimento { get; set; }
         public double Peso { get; set; }
-        public TSexo Sexo { get; }
-        public TPelagem TipoPelagem { get; }
-        public TPorte Porte { get; }
+        public TSexo Sexo { get; set; }
+        public TPelagem TipoPelagem { get; set; }
+        public TPorte Porte { get; set; }
         public bool GostaBrincar { get; set; }
         public string Temperamento { get; set; }
         public bool RelacionaOutroCao { get; set; }
         public bool RelacionaGato { get; set; }
         public bool PossuiDeficiencia { get; set; }
         public string HistoricoVida { get; set; }
-        public string urlFoto { get; set; }
+        public string UrlFoto { get; set; }
 
         public virtual ICollection<ProcedimentosPosAdocao> ProcedimentosPosAdocao { get; set; }
 

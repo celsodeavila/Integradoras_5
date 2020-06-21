@@ -8,17 +8,17 @@ namespace CaoLendario.Models
 
     public class User
     {
-        private int UserID { get; set; }
-        private string nome { get; set; }
-        private string email { get; set; }
-        private string senha { get; set; }
-        private DateTime data_nascimento { get; set; }
-        private string endereco { get; set; }
-        private string cep { get; set; }
-        private string uf { get; set; }
-        private string telefone { get; set; }
-        private ICollection<ProcedimentosPosAdocao> posadocao { get; set; }
-        private ICollection<ProcedimentosPreAdocao> preadocao { get; set; }
+        public int UserID { get; set; }
+        public string nome { get; set; }
+        public string email { get; set; }
+        public string senha { get; set; }
+        public DateTime data_nascimento { get; set; }
+        public string endereco { get; set; }
+        public string cep { get; set; }
+        public string uf { get; set; }
+        public string telefone { get; set; }
+        public ICollection<ProcedimentosPosAdocao> posadocao { get; set; }
+        public ICollection<ProcedimentosPreAdocao> preadocao { get; set; }
     }
 
 
