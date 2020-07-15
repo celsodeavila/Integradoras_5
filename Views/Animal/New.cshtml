@@ -20,7 +20,7 @@
                 </div>
 
                 <div>
-                    <input class="shadow-input" asp-for="animal.Nascimento" />
+                    <input type="date" class="shadow-input" asp-for="animal.Nascimento" />
 
                     <select class="shadow-input" asp-for="animal.Sexo">
                         <option selected>Sexo</option>
@@ -70,7 +70,7 @@
 
                 <div class="imagens-animal shadow-input">
                     <h1>Imagens</h1>
-                    <input type="file" asp-for="animal.UrlFoto" />
+                    <input type="text" asp-for="animal.UrlFoto" />
                 </div>
 
                 <div>
@@ -89,7 +89,32 @@
                 <span>Filtrar <img src="~/assets/Filter.svg" alt="filter" /></span>
             </button>
             <div class="item-content">
+                @foreach (var p in Model.Animais)
+                {
+                    <div class="item">
+                        <div class="item-header">
+                            <i class="fa fa-paw"></i>
+                            <p>@p.NomeAnimal (@p.AnimalID.ToString("00000"))</p>
+                        </div>
+                        <div class="item-body">
+                            <div class="imagem-content">
+                                <img src="@p.UrlFoto" />
+                            </div>
+                            <div class="botoes">
 
+                                <a asp-action="Edit" asp-route-id="@p.AnimalID">Editar</a>
+                                <a asp-action="Delete" asp-route-id="@p.AnimalID">Delete</a>
+                                <a asp-action="Details" asp-route-id="@p.AnimalID">Visualizar</a>
+
+                            </div>
+                            <!--CORPO--->
+                        </div>
+                    </div>
+                }
+            </div>
+            <div page-model="@Model.PagingInfo" page-action="New" page-classes-enabled="true"
+                 page-class="btn-nav" page-class-normal="btn-nav"
+                 page-class-selected="nav-active" class="btn-navigation-group">
             </div>
         </div>
     </div>
