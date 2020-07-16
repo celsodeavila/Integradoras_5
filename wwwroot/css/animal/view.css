@@ -1,0 +1,74 @@
+﻿.content-view {
+    padding: 30px;
+}
+
+    .content-view h3 {
+        font-size: 1.87em;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+.head-animal {
+    background: #286eae;
+    padding: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-radius: 5px 5px 0 0;
+}
+
+    .head-animal select {
+        background: none;
+        border: none;
+        font-size: 1.125em;
+        color: #fff;
+    }
+
+    .head-animal option {
+        color: #000;
+    }
+
+.img-animal {
+    background: #000;
+    margin: 0 auto;
+}
+
+    .img-animal img {
+        display: block;
+        width: 100%;
+        height: 260px;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 0 0 0 5px;
+    }
+
+.dados-animal {
+    background: #efefef;
+    border: 2px solid #286eae;
+    border-radius: 10px 10px 5px 5px;
+}
+
+.descricao-animal {
+    height: 260px;
+    overflow: auto;
+}
+
+.box-descricao {
+    padding: 10px 65px 10px 5px;
+    display: block;
+    margin: 5px auto;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.125em;
+    color: #808080;
+    font-weight: 600;
+    background: #fff;
+}
+
+    .box-descricao input {
+        color: #404040;
+        border: none;
+        font-weight: 600;
+        font-size: 1.125em;
+    }
