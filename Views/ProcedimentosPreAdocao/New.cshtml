@@ -13,7 +13,10 @@
             <span style="font-size: 19px;">que foram realizados em nosso animalzinho até o momento.</span></br>
             <span style="font-size: 21px;">Para isto basta preencher o formulário a seguir e salvar!</span>
         </h2>
-        <form id="form-pos" asp-action="New">
+        <form id="form-pos" asp-action="@(ViewBag.isEdit == true ? "Edit" : "New")" asp-route-pag="@Model.PagingInfo.PaginaAtual">
+            @{
+                if (ViewBag.isEdit == true) { <input type="hidden" asp-for="procedimentoPreAdocao.ProcedimentosPreAdocaoID" />}
+            }
             <select id="txt-animal" class="input" asp-for="procedimentoPreAdocao.AnimalID" asp-items="ViewBag.Animais"></select>
             <textarea id="txt-descricao" class="input" placeholder="Descrição" asp-for="procedimentoPreAdocao.descricao"> </textarea>
             <input id="txt-data" class="input" type="date" placeholder="Data" asp-for="procedimentoPreAdocao.data">
@@ -41,9 +44,13 @@
                         <p class="item-cod">CÓD ANIMAL: @p.AnimalID.ToString("00000")</p>
                         <div class="item-container">
                             <img src="~/assets/PetCare.svg" />
-                            <p>
-                                @p.descricao
-                            </p>
+                            <div class="item-data">
+                                <p>@p.descricao</p>
+                                <div id="item-btn-group">
+                                    <a class="btn-item edit" asp-action="Edit" asp-route-id="@p.ProcedimentosPreAdocaoID" asp-route-pag="@Model.PagingInfo.PaginaAtual">Editar</a>
+                                    <a class="btn-item del" asp-action="Delete" asp-route-id="@p.ProcedimentosPreAdocaoID" asp-route-pag="@Model.PagingInfo.PaginaAtual" onclick="return confirm('Deseja realmente deletar isto?')">Excluir</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

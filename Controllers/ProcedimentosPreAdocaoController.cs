@@ -24,6 +24,7 @@ namespace CaoLendario.Controllers
         public IActionResult New(int pag = 1)
         {
             ViewBag.Animais = new SelectList(context.Animais.OrderBy(a => a.NomeAnimal), "AnimalID", "NomeAnimal");
+            ViewBag.isEdit = false;
             return View(new ProcedimentosPreAdocaoListViewModel
             {
                 ProcedimentosPreAdocao = repositorio.ProcedimentosPreAdocao
@@ -39,44 +40,46 @@ namespace CaoLendario.Controllers
             });
         }
         [HttpPost]
-        public IActionResult New(ProcedimentosPreAdocao procedimentoPreAdocao)
+        public IActionResult New(ProcedimentosPreAdocao procedimentoPreAdocao, int pag = 1)
         {
             repositorio.Create(procedimentoPreAdocao);
-            return RedirectToAction("New");
-        }
-
-        public IActionResult Details(int id)
-        {
-            var procedimentoPreAdocao = repositorio.ObterProcedimentosPreAdocao(id);
-            return View(procedimentoPreAdocao);
+            return RedirectToAction("New", new { pag });
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(int id, int pag = 1)
         {
-            var procedimentoPreAdocao = context.ProcedimentosPreAdocao.Find(id);
-            /*ViewBag.FabricanteId = new SelectList(context.Fabricantes.OrderBy(f
-           => f.Nome), "FabricanteID", "Nome");*/
-            return View(procedimentoPreAdocao);
+            ViewBag.Animais = new SelectList(context.Animais.OrderBy(a => a.NomeAnimal), "AnimalID", "NomeAnimal");
+            ViewBag.isEdit = true;
+            return View("New", new ProcedimentosPreAdocaoListViewModel
+            {
+                procedimentoPreAdocao = context.ProcedimentosPreAdocao.Find(id),
+                ProcedimentosPreAdocao = repositorio.ProcedimentosPreAdocao
+                .OrderBy(p => p.ProcedimentosPreAdocaoID)
+                .Skip((pag - 1) * PageSize)
+                .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    PaginaAtual = pag,
+                    ItensPorPagina = PageSize,
+                    TotalItens = repositorio.ProcedimentosPreAdocao.Count()
+                }
+            });
         }
         [HttpPost]
-        public IActionResult Edit(ProcedimentosPreAdocao procedimentoPreAdocao)
+        public IActionResult Edit(ProcedimentosPreAdocao procedimentoPreAdocao, int pag = 1)
         {
+            procedimentoPreAdocao.Animal = context.Animais.Find(procedimentoPreAdocao.AnimalID);
             repositorio.Edit(procedimentoPreAdocao);
-            return RedirectToAction("Details", "ProcedimentosPreAdocaoController", new { id = procedimentoPreAdocao.ProcedimentosPreAdocaoID });
+            return RedirectToAction("New", new { pag });
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id, int pag = 1)
         {
             var procedimentoPreAdocao = repositorio.ObterProcedimentosPreAdocao(id);
-            return View(procedimentoPreAdocao);
-        }
-        [HttpPost]
-        public IActionResult Delete(ProcedimentosPreAdocao procedimentoPreAdocao)
-        {
             repositorio.Delete(procedimentoPreAdocao);
-            return RedirectToAction("List");
+            return RedirectToAction("New", new { pag });
         }
     }
 }

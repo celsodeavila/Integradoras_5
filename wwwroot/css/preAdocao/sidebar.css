@@ -133,3 +133,49 @@
   color: whitesmoke;
   transition: all ease-in 0.2s;
 }
+
+.item-data {
+    flex-direction: column;
+    width: 100%;
+}
+
+.btn-item {
+    line-height: 30px;
+    width: 100%;
+    text-decoration: none;
+    margin: 5px 7px 0 7px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all ease-in 0.2s;
+}
+
+.edit {
+    border: 1px var(--primary-color) solid;
+    color: var(--primary-color);
+}
+
+.del {
+    border: 1px darkred solid;
+    color: darkred;
+}
+
+.btn-item:hover {
+    color: whitesmoke;
+    transition: all ease-in 0.2s;
+}
+
+.edit:hover {
+    background-color: var(--primary-color);
+}
+
+.del:hover {
+    background-color: darkred;
+}
+
+#item-btn-group {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
