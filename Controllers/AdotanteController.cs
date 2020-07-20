@@ -1,4 +1,5 @@
 ﻿using CaoLendario.Models;
+using CaoLendario.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -10,9 +11,9 @@ namespace CaoLendario.Controllers
 {
 	public class AdotanteController : Controller
 	{
-
         private IAdotanteRepositorio repositorio;
         private ApplicationDbContext context;
+        public int PageSize = 2;
 
         public AdotanteController(IAdotanteRepositorio repo, ApplicationDbContext ctx)
         {
@@ -51,11 +52,23 @@ namespace CaoLendario.Controllers
 
         //Create
         [HttpGet]
-        public IActionResult New()
+        public IActionResult New(int pag = 1)
         {
-            ViewBag.UserID = new SelectList(context.Adotantes.OrderBy(a => a.nome), "UserID", "Nome");
-            return View();
+            return View(new AdotantesListViewModel
+            {
+                adotantes = repositorio.Adotantes
+                .OrderBy(p => p.UserID)
+                .Skip((pag - 1) * PageSize)
+                .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    PaginaAtual = pag,
+                    ItensPorPagina = PageSize,
+                    TotalItens = repositorio.Adotantes.Count()
+                }
+            });
         }
+
         [HttpPost]
         public IActionResult New(Adotante adotante)
         {
@@ -70,6 +83,5 @@ namespace CaoLendario.Controllers
             var Adotante = repositorio.ObterAdotante(id);
             return View(Adotante);
         }
-
     }
 }

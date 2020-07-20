@@ -136,29 +136,28 @@ namespace CaoLendario.Models
                });
                context.SaveChanges();
             }
-            //if (!context.Adotantes.Any())
-            //{
-            //    context.Adotantes.AddRange(
-            //    new Adotante
-            //    {
-            //        //UserID = 2,
-            //        nome = "Alberto",
-            //        email = "alberto@albertp.com",
-            //        senha = "alberto",
-            //        data_nascimento = DateTime.Today,
-            //        endereco = "Rua Treze, 35, jd das palemiras",
-            //        cep = "3713000",
-            //        uf = "MG",
-            //        telefone = "3566998877",
-            //        moradia = tipoMoradia.Casa,
-            //        porte = prefPorte.Grande,
-            //        filhote = prefFilhote.Indiferente,
-            //        castrado = prefCastrado.Indiferente,
-            //        sexo = prefSexo.Fêmea,
-            //        talimentacao = alimentacao.Ambos
-            //    });
-            //    context.SaveChanges();
-           // }
+            if (!context.Adotantes.Any())
+            {
+                context.Adotantes.AddRange(
+                new Adotante
+                {
+                    nome = "Alberto",
+                    email = "alberto@albertp.com",
+                    senha = "alberto",
+                    data_nascimento = DateTime.Today,
+                    endereco = "Rua Treze, 35, jd das palemiras",
+                    cep = "3713000",
+                    uf = "MG",
+                    telefone = "3566998877",
+                    moradia = tipoMoradia.Casa,
+                    porte = prefPorte.Grande,
+                    filhote = prefFilhote.Indiferente,
+                    castrado = prefCastrado.Indiferente,
+                    sexo = prefSexo.Fêmea,
+                    talimentacao = alimentacao.Ambos
+                });
+                context.SaveChanges();
+            }
         }
     }
 }
