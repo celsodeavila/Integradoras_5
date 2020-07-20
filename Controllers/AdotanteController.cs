@@ -11,7 +11,6 @@ namespace CaoLendario.Controllers
 {
 	public class AdotanteController : Controller
 	{
-
         private IAdotanteRepositorio repositorio;
         private ApplicationDbContext context;
         public int PageSize = 2;
@@ -69,6 +68,7 @@ namespace CaoLendario.Controllers
                 }
             });
         }
+
         [HttpPost]
         public IActionResult New(Adotante adotante)
         {
@@ -83,6 +83,5 @@ namespace CaoLendario.Controllers
             var Adotante = repositorio.ObterAdotante(id);
             return View(Adotante);
         }
-
     }
 }

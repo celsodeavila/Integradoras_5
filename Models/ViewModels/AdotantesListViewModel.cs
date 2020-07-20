@@ -10,5 +10,7 @@ namespace CaoLendario.Models.ViewModels
         public Adotante adotante { get; set; }
         public IEnumerable<Adotante> adotantes { get; set; }
         public PagingInfo PagingInfo { get; set; }
+
+
     }
 }
