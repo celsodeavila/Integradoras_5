@@ -15,7 +15,6 @@ namespace CaoLendario.Controllers
         private ApplicationDbContext context;
         public int PageSize = 2;
 
-
         public AdotanteController(IAdotanteRepositorio repo, ApplicationDbContext ctx)
         {
             repositorio = repo;

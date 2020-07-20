@@ -8235,25 +8235,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adrie\\.nuget\\packages\\": {},
+    "C:\\Users\\Juscimara\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ASP\\Integradoras_5\\CaoLendario.csproj",
+      "projectUniqueName": "C:\\Users\\Juscimara\\Documents\\Facul\\5º Periodo\\Atividades Integradoras V\\Projeto\\Integradoras_5\\CaoLendario.csproj",
       "projectName": "CaoLendario",
-      "projectPath": "C:\\ASP\\Integradoras_5\\CaoLendario.csproj",
-      "packagesPath": "C:\\Users\\adrie\\.nuget\\packages\\",
-      "outputPath": "C:\\ASP\\Integradoras_5\\obj\\",
+      "projectPath": "C:\\Users\\Juscimara\\Documents\\Facul\\5º Periodo\\Atividades Integradoras V\\Projeto\\Integradoras_5\\CaoLendario.csproj",
+      "packagesPath": "C:\\Users\\Juscimara\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Juscimara\\Documents\\Facul\\5º Periodo\\Atividades Integradoras V\\Projeto\\Integradoras_5\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\adrie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Juscimara\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -8323,8 +8323,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\Juscimara\\Documents\\Facul\\5º Periodo\\Atividades Integradoras V\\Projeto\\Integradoras_5\\obj\\project.nuget.cache: After parsing a value an unexpected character was encountered: \". Path 'logs', line 174, position 2."
+    }
+  ]
 }
