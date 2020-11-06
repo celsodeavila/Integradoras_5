@@ -11,8 +11,8 @@
             <h1 class="title">@ViewBag.Title</h1>
             <h2 class="sub-title">
                 <span style="font-size: 1.125em; font-weight: 400;">Permita que o animal seja adotado!</span> <br />
-                <span style="font-size: 0.85em;">Informe seus dados e os mantenham sempre atualizados.</span> <br />
-                <span style="font-size: 1.125em; font-weight: 400;">Com isso, um adotante logo irá encontra-ló</span> <br />
+                <span style="font-size: 0.85em;">Informe seus dados e os mantenha sempre atualizados.</span> <br />
+                <span style="font-size: 1.125em; font-weight: 400;">Com isso, um adotante logo irá encontrá-lo.</span> <br />
             </h2>
             <form class="form-animal" asp-action="New">
                 <div>
@@ -84,10 +84,15 @@
             <button id="reload" class="btn-menu">
                 <p>Atualizado a 12h <img src="~/assets/Reload.svg" alt="reload" /></p>
             </button>
-            <button class="btn-filter">
-                <p>TODOS OS REGISTROS</p>
-                <span>Filtrar <img src="~/assets/Filter.svg" alt="filter" /></span>
-            </button>
+            <div class="filter-area">
+                <form asp-action="New" method="get">
+                    <input type="text" name="query" class="input-filter" placeholder="Pesquise aqui..." />
+                    <input type="submit" value="" class="filter-icon" />
+                </form>
+                <button class="btn-filter-ops">
+                    <img src="~/assets/Filter.svg" alt="filter" />
+                </button>
+            </div>
             <div class="item-content">
                 @foreach (var p in Model.Animais)
                 {
@@ -103,7 +108,7 @@
                             <div class="botoes">
 
                                 <a asp-action="Edit" asp-route-id="@p.AnimalID">Editar</a>
-                                <a asp-action="Delete" asp-route-id="@p.AnimalID">Delete</a>
+                                <a asp-action="Delete" asp-route-id="@p.AnimalID">Excluir</a>
                                 <a asp-action="Details" asp-route-id="@p.AnimalID">Visualizar</a>
 
                             </div>

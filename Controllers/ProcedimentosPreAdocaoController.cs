@@ -21,13 +21,34 @@ namespace CaoLendario.Controllers
         }
 
         [HttpGet]
-        public IActionResult New(int pag = 1)
+        public IActionResult New(int pag = 1, string filter = "name", string query = "")
         {
             ViewBag.Animais = new SelectList(context.Animais.OrderBy(a => a.NomeAnimal), "AnimalID", "NomeAnimal");
             ViewBag.isEdit = false;
+            IQueryable<ProcedimentosPreAdocao> filteredList;
+
+            if (!string.IsNullOrEmpty(query))
+            {
+                switch (filter)
+                {
+                    case "date":
+                        filteredList = repositorio.ProcedimentosPreAdocao.Where(p => p.data.ToShortDateString().Contains(query));
+                        break;
+                    case "id":
+                        filteredList = repositorio.ProcedimentosPreAdocao.Where(p => p.ProcedimentosPreAdocaoID.ToString().Contains(query));
+                        break;
+                    case "aid":
+                        filteredList = repositorio.ProcedimentosPreAdocao.Where(p => p.AnimalID.ToString().Contains(query));
+                        break;
+                    default:
+                        filteredList = repositorio.ProcedimentosPreAdocao.Where(p => p.Animal.NomeAnimal.Contains(query));
+                        break;
+                }
+            }
+            else filteredList = repositorio.ProcedimentosPreAdocao;
             return View(new ProcedimentosPreAdocaoListViewModel
             {
-                ProcedimentosPreAdocao = repositorio.ProcedimentosPreAdocao
+                ProcedimentosPreAdocao = filteredList
                 .OrderBy(p => p.ProcedimentosPreAdocaoID)
                 .Skip((pag - 1) * PageSize)
                 .Take(PageSize),
@@ -35,7 +56,9 @@ namespace CaoLendario.Controllers
                 {
                     PaginaAtual = pag,
                     ItensPorPagina = PageSize,
-                    TotalItens = repositorio.ProcedimentosPreAdocao.Count()
+                    TotalItens = filteredList.Count(),
+                    filter = filter,
+                    query = query
                 }
             });
         }
