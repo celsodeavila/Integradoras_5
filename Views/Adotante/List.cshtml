@@ -1,0 +1,100 @@
+﻿@model IEnumerable<CaoLendario.Models.Adotante>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="padding:0%; width:60%; text-align:center; display:flex; margin: 1% auto">
+    <div class="col-md-6" style="width:50%;">
+        <h1 style="float:left; padding-top:5%; font-size:20px;">Adotantes</h1>
+    </div>
+</div>
+
+
+<div class="col-md-12" style=" display: flex; padding: 2%; background-color: #286eae;">
+    <div class="col-md-2">
+        <p class="dados" style="color:#fff; padding-top:12%;">
+            NOME
+        </p>
+    </div>
+    <div class="col-md-2">
+        <p class="dados" style="color:#fff; padding-top:12%;">
+            EMAIL
+        </p>
+    </div>
+    <div class="col-md-2">
+        <p class="dados" style="color:#fff; padding-top:12%;">
+            TELEFONE
+        </p>
+    </div>
+    <div class="col-md-2" style="margin-left:25%">
+        <p class="dados" style="color:#fff; padding-top:12%; ">
+            AÇÕES
+        </p>
+    </div>
+    <div class="col-md-6" style="width:50%;">
+        <form class="botoes-delete container-animal" style="height:auto !important">
+            <a style="margin-left: auto;" asp-action="New">Adicionar adotante</a>
+        </form>
+    </div>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-12" style="display:flex; padding:2%">
+        <div class="col-md-2">
+            <p class="dados">
+                @Html.DisplayFor(modelItem => item.nome)
+            </p>
+        </div>
+        <div class="col-md-2">
+            <p class="dados">
+                @Html.DisplayFor(modelItem => item.email)
+            </p>
+        </div>
+        <div class="col-md-2">
+            <p class="dados">
+                @Html.DisplayFor(modelItem => item.telefone)
+            </p>
+        </div>
+        <div class="col-md-6">
+            <form class="botoes-delete container-animal" style="height:auto !important">
+                <div class="col-md-4">
+                    <a asp-action="Edit" asp-route-id="@item.UserID">Editar</a>
+                </div>
+                <div class="col-md-4">
+                    <a asp-action="Details" asp-route-id="@item.UserID">Detalhes</a>
+                </div>
+                <div class="col-md-4">
+                    <a asp-action="Delete" asp-route-id="@item.UserID">Deletar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+<style>
+    .col-md-12 {
+        width: 60%;
+        background-color: #fff;
+        margin: 1% auto;
+        border: 2px solid #286eae;
+        border-radius: 8px;
+    }
+
+    .col-md-2 {
+        width: 16%;
+    }
+
+    form {
+        display: flex;
+        width: 100%;
+        padding: 0px !important;
+    }
+
+    .dados {
+        font-size: 15px;
+        padding-top: 5%;
+    }
+</style>
