@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CaoLendario.Models
 {
-	public class Administrador
+	public class Administrador: User
 	{
 	}
 }

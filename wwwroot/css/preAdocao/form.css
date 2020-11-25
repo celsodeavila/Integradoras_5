@@ -1,0 +1,117 @@
+::-webkit-search-cancel-button,
+::-webkit-clear-button {
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg fill="%23000" fill-opacity=".54" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E');
+  color: rgba(0, 0, 0, 0.54);
+  cursor: pointer;
+  height: 1.5rem;
+  margin-right: 0;
+  width: 1.5rem;
+}
+
+::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg fill="%23000" fill-opacity=".54" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/%3E%3Cpath d="M0 0h24v24H0z" fill="none"/%3E%3C/svg%3E');
+  width: 14px;
+  height: 18px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+}
+::-webkit-calendar-picker-indicator:hover {
+  -webkit-box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.04);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: calc(100vh - 50px);
+  grid-template-areas: "f s";
+}
+
+.form {
+  padding: 25px;
+  grid-area: f;
+}
+.sidebar {
+  background-color: white;
+  grid-area: s;
+  padding: 10px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.sub-title {
+  font-style: normal;
+  font-weight: normal;
+  opacity: 0.75;
+}
+
+form {
+  padding: 15px 0;
+  height: calc(100vh - 225px);
+}
+
+.input {
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  min-height: 40px;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+textarea {
+  resize: none;
+  padding: 10px !important;
+}
+
+.btn-solid {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  color: whitesmoke;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#form-pos {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+
+  grid-template-areas:
+    "a a"
+    "d d"
+    "dt s";
+}
+
+#txt-animal {
+  grid-area: a;
+}
+#txt-descricao {
+  grid-area: d;
+}
+#txt-data {
+  grid-area: dt;
+}
+#btn-salvar {
+  grid-area: s;
+}

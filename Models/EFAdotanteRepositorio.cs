@@ -24,6 +24,7 @@ namespace CaoLendario.Models
         }
         public Adotante ObterAdotante(int id)
         {
+            var user = context.Users.FirstOrDefault();
             var adotante = context.Adotantes.FirstOrDefault();
             return adotante;
         }
@@ -32,6 +33,7 @@ namespace CaoLendario.Models
             context.Entry(adotante).State = EntityState.Modified;
             context.SaveChanges();
         }
+
         public void Delete(Adotante adotante)
         {
             context.Remove(adotante);

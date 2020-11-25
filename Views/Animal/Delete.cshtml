@@ -1,0 +1,93 @@
+﻿@model CaoLendario.Models.Animal
+
+@{
+    ViewData["Title"] = "Deletar Animal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-view">
+    <h3>@ViewBag.Title</h3>
+    <div class="container-animal">
+        <div class="dados-animal grid-12">
+            <div class="head-animal">
+                <p>@Model.AnimalID.ToString("00000") - @Model.NomeAnimal</p>
+            </div>
+            <div class="img-animal grid-6">
+                <img src="@Model.UrlFoto" />
+            </div>
+            <div class="grid-6 descricao-animal">
+                <div class="box-descricao">
+                    <p>Nascimento</p>
+                    <input readonly type="text" value="@Model.Nascimento.ToString("dd/MM/yyyy")" />
+                </div>
+                <div class="box-descricao">
+                    <p>Sexo</p>
+                    <input readonly type="text" value="@Model.Sexo" />
+                </div>
+                <div class="box-descricao">
+                    <p>Peso(KG)</p>
+                    <input readonly type="text" value="@Model.Peso" />
+                </div>
+                <div class="box-descricao">
+                    <p>Tipo de pelo</p>
+                    <input readonly type="text" value="@Model.TipoPelagem" />
+                </div>
+                <div class="box-descricao">
+                    <p>Porte</p>
+                    <input readonly type="text" value="@Model.Porte" />
+                </div>
+                <div class="box-descricao">
+                    <p>Temperamento</p>
+                    <input readonly type="text" value="@Model.Temperamento" />
+                </div>
+                <div class="box-descricao">
+                    <p>Gosta de Brincar?</p>
+                    @if (Model.GostaBrincar.ToString() == "True")
+                    {
+                        <input readonly type="text" value="Sim" />
+                    }
+                    else if (Model.RelacionaOutroCao.ToString() == "False")
+                    { <input readonly type="text" value="Não" />}
+                </div>
+                <div class="box-descricao">
+                    <p>Pode conviver com outro cão?</p>
+                    @if (Model.RelacionaGato.ToString() == "True")
+                    {
+                        <input readonly type="text" value="Sim" />
+                    }
+                    else if (Model.RelacionaGato.ToString() == "False")
+                    { <input readonly type="text" value="Não" />}
+                </div>
+                <div class="box-descricao">
+                    <p>Pode conviver com gato?</p>
+                    @if (Model.RelacionaGato.ToString() == "True")
+                    {
+                        <input readonly type="text" value="Sim" />
+                    }
+                    else if (Model.RelacionaGato.ToString() == "False")
+                    { <input readonly type="text" value="Não" />}
+                </div>
+                <div class="box-descricao">
+                    <p>Possui deficiencia?</p>
+                    @if (Model.PossuiDeficiencia.ToString() == "True")
+                    {
+                        <input readonly type="text" value="Sim" />
+                    }
+                    else if (Model.PossuiDeficiencia.ToString() == "False")
+                    { <input readonly type="text" value="Não" />}
+                </div>
+                <div class="box-descricao">
+                    <p>Histórico</p>
+                    <input readonly type="text" value="@Model.HistoricoVida" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="botoes-delete container-animal" asp-action="Delete">
+        <input type="hidden" asp-for="AnimalID" />
+        <button type="submit">Deletar</button>
+        <a asp-action="New">Voltar</a>
+    </form>
+</section>
+
+

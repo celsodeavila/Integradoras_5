@@ -1,0 +1,84 @@
+﻿@model CaoLendario.Models.Animal
+
+@{
+    ViewData["Title"] = "Editar Animal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    <div class="content">
+        <div class="form">
+            <h1 class="title">@ViewBag.Title</h1>
+            <form class="form-animal" asp-action="Edit">
+                <input type="hidden" asp-for="AnimalID" />
+                <div>
+                    <input class="shadow-input" asp-for="NomeAnimal" placeholder="Nome do animal" />
+                </div>
+
+                <div>
+                    <input type="date" class="shadow-input" asp-for="Nascimento" />
+
+                    <select class="shadow-input" asp-for="Sexo">
+                        <option selected>Sexo</option>
+                        <option value="Macho">Macho</option>
+                        <option value="Femea">Femea</option>
+                    </select>
+                </div>
+
+                <div>
+                    <input class="shadow-input" asp-for="Peso" placeholder="Peso (KG)" />
+
+                    <select class="shadow-input" asp-for="TipoPelagem">
+                        <option selected>Tipo de pelo</option>
+                        <option value="Grandes">Pelos grandes</option>
+                        <option value="Pequenos">Pelos pequenos</option>
+                    </select>
+                </div>
+
+                <div>
+                    <select class="shadow-input" asp-for="Porte">
+                        <option selected>Porte</option>
+                        <option value="Pequeno">Pequeno</option>
+                        <option value="Medio">Médio</option>
+                        <option value="Grande">Grande</option>
+                    </select>
+
+                    <input class="shadow-input" asp-for="Temperamento" placeholder="Temperamento" />
+                </div>
+
+                <div class="relacao-animal">
+                    <input asp-for="GostaBrincar" />
+                    <label>Gosta de Brincar</label>
+
+                    <input asp-for="RelacionaOutroCao" />
+                    <label>Pode conviver com outro cão</label>
+
+                    <input asp-for="RelacionaGato" />
+                    <label>Pode conviver com gato</label>
+
+                    <input asp-for="PossuiDeficiencia" />
+                    <label>Possui deficiencia</label>
+                </div>
+
+                <div>
+                    <textarea placeholder="Historico de vida" asp-for="HistoricoVida"></textarea>
+                </div>
+
+                <div class="imagens-animal shadow-input">
+                    <h1>Imagens</h1>
+                    <input type="text" asp-for="UrlFoto" />
+                </div>
+
+                <div>
+                    <button class="btn-cadastrar" type="submit" value="Salve">Salvar</button>
+                </div> <br /> <br />
+                <div>
+                    <a class="btn-cadastrar" asp-action="New">Voltar</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</section>
+

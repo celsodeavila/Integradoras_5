@@ -9,12 +9,12 @@ namespace CaoLendario.Models
     public class EFProcedimentosPosAdocaoRepositorio : IProcedimentosPosAdocaoRepositorio
     {
         private ApplicationDbContext context;
-
+        
         public EFProcedimentosPosAdocaoRepositorio(ApplicationDbContext ctx)
         {
             context = ctx;
         }
-        public IQueryable<ProcedimentosPosAdocao> context.ProcedimentosPosAdocao();
+        public IQueryable<ProcedimentosPosAdocao> ProcedimentosPosAdocao => context.ProcedimentosPosAdocao;
 
         public void Create(ProcedimentosPosAdocao procedimentosPosAdocao)
         {

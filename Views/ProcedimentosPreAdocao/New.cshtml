@@ -1,0 +1,105 @@
+﻿@model CaoLendario.Models.ViewModels.ProcedimentosPreAdocaoListViewModel
+
+@{
+    ViewData["Title"] = "Pré-Adocão";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="form">
+        <h1 class="title">@ViewBag.Title</h1>
+        <h2 class="sub-title">
+            <span style="font-size: 28px;">Registre os procedimentos de pré-adoção</span></br>
+            <span style="font-size: 19px;">que foram realizados em nosso animalzinho até o momento.</span></br>
+            <span style="font-size: 21px;">Para isto basta preencher o formulário a seguir e salvar!</span>
+        </h2>
+        <form id="form-pos" asp-action="@(ViewBag.isEdit == true ? "Edit" : "New")" asp-route-pag="@Model.PagingInfo.PaginaAtual">
+            @{
+                if (ViewBag.isEdit == true) { <input type="hidden" asp-for="procedimentoPreAdocao.ProcedimentosPreAdocaoID" />}
+            }
+            <select id="txt-animal" class="input" asp-for="procedimentoPreAdocao.AnimalID" asp-items="ViewBag.Animais"></select>
+            <textarea id="txt-descricao" class="input" placeholder="Descrição" asp-for="procedimentoPreAdocao.descricao"> </textarea>
+            <input id="txt-data" class="input" type="date" placeholder="Data" asp-for="procedimentoPreAdocao.data">
+            <input id="btn-salvar" class="btn-solid" type="submit" value="Salvar">
+        </form>
+    </div>
+    <div class="sidebar">
+        <h1 class="side-title">Últimos procedimentos</h1>
+        <button id="reload" class="btn-menu">
+            <p>Atualizado agora mesmo<img src="~/assets/Reload.svg" alt="reload" /></p>
+        </button>
+        <div class="filter-area">
+            <form asp-action="New" method="get">
+                <input type="text" name="query" class="input-filter" value="@Model.PagingInfo.query" placeholder="Pesquise aqui..." />
+                <input type="hidden" name="filter" class="input-filter" value="@Model.PagingInfo.filter" />
+                <input type="submit" value="" class="filter-icon" />
+            </form>
+            <button class="btn-filter-ops" onclick="btnFilterClick()">
+                <img src="~/assets/Filter.svg" alt="filter" />
+            </button>
+            <div id="filter-options" class="filter-options-area">
+                <a asp-action="New" asp-route-filter="name" class="filter-option @(Model.PagingInfo.filter == "name" ? "filter-active": "")">Nome do Animal</a>
+                <a asp-action="New" asp-route-filter="aid" class="filter-option @(Model.PagingInfo.filter == "aid" ? "filter-active": "")">Cód. do Animal</a>
+                <a asp-action="New" asp-route-filter="id" class="filter-option @(Model.PagingInfo.filter == "id" ? "filter-active": "")">Cód. do Proce.</a>
+                <a asp-action="New" asp-route-filter="date" class="filter-option @(Model.PagingInfo.filter == "date" ? "filter-active": "")">Data do Proce.</a>
+            </div>
+        </div>
+        <div class="item-content">
+            @{
+                if (Model.ProcedimentosPreAdocao.Count() == 0)
+                {
+                    <div class="empty-search-area">
+                        <p class="empty-search-txt size-variant">NÃO HÁ NADA</p><br />
+                        <p class="empty-search-txt">PARA MOSTRAR</p>
+                        <img class="empty-search-img" src="~/assets/dog-search.png" />
+                    </div>
+                }
+                else
+                {
+                    foreach (var p in Model.ProcedimentosPreAdocao)
+                    {
+                        <div class="item">
+                            <div class="item-header">
+                                <img src="~/assets/Calendario.svg" />
+                                <p>@p.data.ToShortDateString()</p>
+                            </div>
+                            <div class="item-body">
+                                @{
+                                    var Animais = (ViewBag.Animais as SelectList).ToList();
+                                    var animal = Animais.FirstOrDefault(a => a.Value == p.AnimalID.ToString());
+                                    <p class="item-cod">
+                                        @p.AnimalID.ToString("00000") - @animal.Text
+                                    </p>
+                                }
+                                <div class="item-container">
+                                    <img src="~/assets/PetCare.svg" />
+                                    <div class="item-data">
+                                        <p>@p.descricao</p>
+                                        <div id="item-btn-group">
+                                            <a class="btn-item edit" asp-action="Edit" asp-route-id="@p.ProcedimentosPreAdocaoID" asp-route-pag="@Model.PagingInfo.PaginaAtual">Editar</a>
+                                            <a class="btn-item del" asp-action="Delete" asp-route-id="@p.ProcedimentosPreAdocaoID" asp-route-pag="@Model.PagingInfo.PaginaAtual" onclick="return confirm('Deseja realmente deletar isto?')">Excluir</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+        <div page-model="@Model.PagingInfo" page-action="New" page-classes-enabled="true"
+             page-class="btn-nav" page-class-normal="btn-nav"
+             page-class-selected="nav-active" class="btn-navigation-group">
+        </div>
+    </div>
+</div>
+<script>
+    function btnFilterClick() {
+        var x = document.getElementById("filter-options");
+        if (x.style.display === "none") {
+            x.style.display = "flex";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>

@@ -1,0 +1,74 @@
+﻿@model CaoLendario.Models.Adotante
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-view">
+    <h3>Adotante</h3>
+    <div class="container-animal">
+        <div class="dados-animal grid-12">
+            <div class="head-animal"></div>
+            <div class="grid-12">
+                <div class="box-descricao">
+                    <p>Nome</p>
+                    <input readonly type="text" asp-for="nome" />
+                </div>
+                <div class="box-descricao">
+                    <p>Nascimento</p>
+                    <input readonly type="text" asp-for="data_nascimento" />
+                </div>
+                <div class="box-descricao">
+                    <p>Email</p>
+                    <input readonly type="text" asp-for="email" />
+                </div>
+                <div class="box-descricao">
+                    <p>Endereço</p>
+                    <input readonly type="text" asp-for="endereco" />
+                </div>
+                <div class="box-descricao">
+                    <p>CEP</p>
+                    <input readonly type="text" asp-for="cep" />
+                </div>
+                <div class="box-descricao">
+                    <p>UF</p>
+                    <input readonly type="text" asp-for="uf" />
+                </div>
+                <div class="box-descricao">
+                    <p>Telefone</p>
+                    <input readonly type="text" asp-for="telefone" />
+                </div>
+                <div class="box-descricao">
+                    <p>Moradia</p>
+                    <input readonly type="text" asp-for="moradia" />
+                </div>
+                <div class="box-descricao">
+                    <p>Porte</p>
+                    <input readonly type="text" asp-for="porte" />
+                </div>
+                <div class="box-descricao">
+                    <p>Preferencia</p>
+                    <input readonly type="text" asp-for="filhote" />
+                </div>
+                <div class="box-descricao">
+                    <p>Castramento</p>
+                    <input readonly type="text" asp-for="castrado" />
+                </div>
+                <div class="box-descricao">
+                    <p>Sexo Animal</p>
+                    <input readonly type="text" asp-for="sexo" />
+                </div>
+                <div class="box-descricao">
+                    <p>Tipo de Alimentação</p>
+                    <input readonly type="text" asp-for="talimentacao" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <form class="botoes-delete container-animal" asp-action="Edit">
+        <input type="hidden" asp-for="UserID" />
+        <button type="submit">Editar</button>
+        <a asp-action="List">Voltar</a>
+    </form>
+</section>

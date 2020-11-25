@@ -1,0 +1,97 @@
+﻿@model CaoLendario.Models.Adotante
+
+@{ ViewData["Title"] = "Edit";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h2 style="margin:25px;margin-bottom:-10px; align-content:center; justify-content:center; margin-bottom:3%" class="sub-title">Editando dados: </h2>
+
+            <div class="form-group" style="width:70%;font-size: 18px; margin-left:5%">
+                <label asp-for="moradia" class="control-label"></label>
+                <input asp-for="moradia" class="form-control" style="width:20%"></input>
+                <span asp-validation-for="moradia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="width:70%;font-size: 18px; margin-left:5%">
+                <label asp-for="porte" class="control-label"></label>
+                <input asp-for="porte" class="form-control" style="width:20%"></input>
+                <span asp-validation-for="porte" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%;font-size: 18px; margin-left:5%">
+                <label asp-for="filhote" class="control-label"></label>
+                <input asp-for="filhote" class="form-control" style="width:20%"></input>
+                <span asp-validation-for="filhote" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%; font-size: 18px;margin-left:5%">
+                <label asp-for="castrado" class="control-label"></label>
+                <input asp-for="castrado" class="form-control" style="width:20%"></input>
+                <span asp-validation-for="castrado" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%;font-size: 18px; margin-left:5%">
+                <label asp-for="sexo" class="control-label"></label>
+                <input asp-for="sexo" class="form-control" style="width:20%"></input>
+                <span asp-validation-for="sexo" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%; font-size: 18px;margin-left:5%">
+                <label asp-for="talimentacao" class="control-label"></label>
+                <input asp-for="talimentacao" class="form-control" style="width:20%"></input>
+                <span asp-validation-for="talimentacao" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="UserID" />
+            <div class="form-group" style="width:70%; font-size: 18px;margin-left:5%">
+                <label asp-for="nome" class="control-label"></label>
+                <input asp-for="nome" class="form-control" style="width:20%" />
+                <span asp-validation-for="nome" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%;font-size: 18px; margin-left:5%">
+                <label asp-for="email" class="control-label"></label>
+                <input asp-for="email" class="form-control" style="width:20%" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%;font-size: 18px; margin-left:5%">
+                <label asp-for="senha" class="control-label"></label>
+                <input asp-for="senha" class="form-control" style="width:20%" />
+                <span asp-validation-for="senha" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%;font-size: 18px; margin-left:5%">
+                <label asp-for="data_nascimento" class="control-label"></label>
+                <input asp-for="data_nascimento" class="form-control" style="width:20%" />
+                <span asp-validation-for="data_nascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%; font-size: 18px; margin-left:5%">
+                <label asp-for="endereco" class="control-label"></label>
+                <input asp-for="endereco" class="form-control" style="width:20%" />
+                <span asp-validation-for="endereco" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%;font-size: 18px; margin-left:5%">
+                <label asp-for="cep" class="control-label"></label>
+                <input asp-for="cep" class="form-control" style="width:20%" />
+                <span asp-validation-for="cep" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%;font-size: 18px; margin-left:5%">
+                <label asp-for="uf" class="control-label"></label>
+                <input asp-for="uf" class="form-control" style="width:20%" />
+                <span asp-validation-for="uf" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="width:70%; font-size: 18px;margin-left:5%">
+                <label asp-for="telefone" class="control-label"></label>
+                <input asp-for="telefone" class="form-control" style="width:20%" />
+                <span asp-validation-for="telefone" class="text-danger"></span>
+            </div>
+
+            <button type="submit" value="Save" class="btn btn-primary"
+                    style="margin:20px;border-radius:20%;width:10%; height:10%;">
+                Salvar
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<div style="margin:20px;border-radius:20%;width:12%; height:12%; margin-top:10%">
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using CaoLendario.Models;
+
 
 namespace CaoLendario.Models
 {
@@ -16,7 +14,8 @@ namespace CaoLendario.Models
             context = ctx;
         }
 
-        public IQueryable<Animal> Animal => context.Animais;
+
+        public IQueryable<Animal> Animais => context.Animais;
 
         public void Create(Animal animal)
         {
@@ -43,4 +42,12 @@ namespace CaoLendario.Models
             context.SaveChanges();
         }
     }
+    
 }
+
+    
+
+
+
+
+

@@ -1,0 +1,132 @@
+﻿/*Gerais*/
+.shadow-input {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+label {
+    font-size: 0.95em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/*Form*/
+.form-animal {
+    height: 600px;
+    overflow: auto;
+}
+
+    .form-animal input, .form-animal select {
+        padding: 20px 150px 20px 5px;
+        border-radius: 5px;
+        border: none;
+        font-size: 1.125em;
+        color: #9f9f9f;
+        font-weight: 600;
+        margin: 6px;
+    }
+
+textarea {
+    width: 75%;
+    height: 200px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.125em;
+    color: #9f9f9f;
+    font-weight: 600;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    margin: 13px 0;
+}
+
+.imagens-animal {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 13px 0;
+}
+
+    .imagens-animal h1 {
+        font-weight: 600;
+        color: #808080;
+    }
+
+.btn-cadastrar {
+    padding: 25px 315px;
+    background: #3acdd1;
+    border: none;
+    border: 1px solid #176ba9;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.5625em;
+}
+
+.imagem-content {
+    width: 120px;
+    height: 130px;
+    background: #000;
+    float: left;
+}
+
+    .imagem-content img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+.botoes {
+    width: 100%;
+    height: 100px;
+    background: #efefef;
+    padding: 10px;
+}
+
+    .botoes a {
+        border: 1.5px solid #286eae;
+        color: #286eae;
+        border-radius: 6px;
+        text-decoration: none;
+        padding: 5px;
+        background: #fff;
+        margin-top: 5px;
+        margin-left: 5px;
+        display: inline-block;
+    }
+
+
+        .botoes a:nth-child(2n) {
+            border-color: #ae2828;
+            color: #ae2828;
+        }
+
+        .botoes a:nth-child(3n) {
+            width: 120px;
+            text-align: center;
+        }
+
+.botoes-delete button {
+    border: 1.5px solid #ae2828;
+    color: #ae2828;
+    border-radius: 6px;
+    text-decoration: none;
+    padding: 15px;
+    background: #fff;
+    margin-top: 5px;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.botoes-delete a {
+    border: 1.5px solid #286eae;
+    color: #286eae;
+    border-radius: 6px;
+    text-decoration: none;
+    padding: 15px;
+    background: #fff;
+    margin-top: 5px;
+    margin-left: 5px;
+    display: inline-block;
+}
