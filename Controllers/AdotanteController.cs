@@ -21,6 +21,8 @@ namespace CaoLendario.Controllers
             context = ctx;
         }
 
+        public ViewResult List() => View(repositorio.Adotantes);
+
         //Edit
         [HttpGet]
         public IActionResult Edit(int id)
@@ -40,7 +42,8 @@ namespace CaoLendario.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var adotante = repositorio.ObterAdotante(id);
+            var adotante = context.Adotantes.Find(id);
+            ViewBag.UserID = new SelectList(context.Adotantes.OrderBy(a => a.nome), "UserID", "Nome");
             return View(adotante);
         }
         [HttpPost]
@@ -80,8 +83,9 @@ namespace CaoLendario.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            var Adotante = repositorio.ObterAdotante(id);
-            return View(Adotante);
+            var adotante = context.Adotantes.Find(id);
+            ViewBag.UserID = new SelectList(context.Adotantes.OrderBy(a => a.nome), "UserID", "Nome");
+            return View(adotante);
         }
     }
 }

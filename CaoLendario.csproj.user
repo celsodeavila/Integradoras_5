@@ -12,6 +12,8 @@
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
     <WebStackScaffolding_DbContextTypeFullName>CaoLendario.Models.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <View_SelectedScaffolderID>RazorViewEmptyScaffolder</View_SelectedScaffolderID>
+    <View_SelectedScaffolderCategoryPath>root/View</View_SelectedScaffolderCategoryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
