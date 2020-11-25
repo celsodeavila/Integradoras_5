@@ -42,7 +42,9 @@ namespace CaoLendario.Infraestrutura
                 TagBuilder tag = new TagBuilder("a");
                 tag.Attributes["href"] = urlHelper.Action(PageAction, new
                 {
-                    pag = i
+                    pag = i,
+                    PageModel.filter,
+                    PageModel.query,
                 });
 
                 //ações para a formatação dos números de páginas na div de paginação

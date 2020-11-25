@@ -8,5 +8,7 @@ namespace CaoLendario.Models.ViewModels
         public int ItensPorPagina { get; set; }
         public int PaginaAtual { get; set; }
         public int TotalDePaginas => (int)Math.Ceiling((decimal)TotalItens / ItensPorPagina);
+        public string query { get; set; }
+        public string filter { get; set; }
     }
 }
